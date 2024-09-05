@@ -1,34 +1,26 @@
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class LibrarySystem {
     
-    public static void main(String[] args) {
-        List<Book> books = new ArrayList<>();
-        List<Author> authors = new ArrayList<>();
+    public static void main(String[] args) {    
 
-        authors.add(new Author(1, "Karen", LocalDate.of(2005, 2, 28)));
+        List<String> objects = new ArrayList<>();
 
-        books.add(new Book(
-            1, 
-            "Pablo", 
-                new Author(2,
-                "Pablo", 
-                LocalDate.of(2004, 9, 30)), 
-            true, 
-            LocalDate.of(2023, 8, 30), 
-            LocalDate.of(2024, 8, 20)));
-       
-        
-        for(Book book: books) {
-            Book.class.getName();
-            System.out.println(book);
+        objects.add("Java");
+        objects.add("Spring");
+        objects.add("MySQL");
+        objects.add("Kafka");
+
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("You want to see the available books?");
+
+    while (scanner.nextLine().equals("yes")) {
+            for(String object: objects) {
+                System.out.println(object);
+            }
         }
-
-        for(Author author: authors) {
-            System.out.println(author);
-        }
-
     }
 }
