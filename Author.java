@@ -1,9 +1,9 @@
 import java.time.LocalDate;
 
 public class Author {
-    private int id = 0;
-    private String name;
-    private LocalDate dateOfBirthDate;
+    int id = 0;
+    String name;
+    LocalDate dateOfBirthDate;
 
     Author(int id, String name, LocalDate dateOfBirthDate) {
         this.id = id;

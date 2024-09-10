@@ -19,10 +19,14 @@ public class Book {
         this.updateDate = updateDate;
     }
 
+    public void toLoan(Boolean availability) {
+        availability = false;
+    }
+
     @Override
     public String toString() {
-        return "Book{id=" + id + ", title='" + title + "', author=" + author + 
-               ", isAvailable=" + availability + ", publicationDate=" + registrationDate + 
-               ", returnDate=" + updateDate + "}";
+        return "\nBook: " + id + "\ntitle: " + title + "\nAuthor: " + author + 
+               "\nisAvailable: " + availability + "\npublicationDate: " + registrationDate + 
+               "\nreturnDate: " + updateDate + "\n";
     }
 }
