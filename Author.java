@@ -11,10 +11,6 @@ public class Author {
         this.dateOfBirthDate = dateOfBirthDate;
     }
 
-    public String getName() {
-        return name;
-    }
-
     @Override
     public String toString() {
         return "Author:" + name + "";
