@@ -1,6 +1,6 @@
 import java.time.LocalDate;
 
-public class Book {
+public  class Book {
     int id = 0;
     String title;
     Author author;
@@ -19,9 +19,6 @@ public class Book {
         this.updateDate = updateDate;
     }
 
-    public void toLoan(Boolean availability) {
-        availability = false;
-    }
 
     @Override
     public String toString() {
