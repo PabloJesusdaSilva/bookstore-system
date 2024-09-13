@@ -1,6 +1,3 @@
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class LibrarySystem {
@@ -14,16 +11,17 @@ public class LibrarySystem {
     while (scanner.nextLine().equals("yes")) {
             for(Book book: books.getBooks()) {
                 if(book.availability == false) {
-                System.out.println(book);
-                }
+                    System.out.println(book);
+                }    
             }
-            books.getBooks();
-
-            System.out.println("Enter the id of the book: ");
-            Integer bookId = scanner.nextInt();
 
             System.out.println("Enter the name of the book: ");
             String bookName = scanner.nextLine();
+            
+            System.out.println("\nEnter the id of the book: ");
+            int bookId = scanner.nextInt();
+
+            books.lendingBook(bookId, true);
         }
     }
 }

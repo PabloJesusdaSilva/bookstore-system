@@ -4,13 +4,13 @@ public  class Book {
     int id = 0;
     String title;
     Author author;
-    Boolean availability;
+    boolean availability;
     LocalDate registrationDate;
     LocalDate updateDate;
 
     Book(){}
 
-    Book(int id, String title, Author author, Boolean availability, LocalDate registrationDate, LocalDate updateDate) {
+    Book(int id, String title, Author author, boolean availability, LocalDate registrationDate, LocalDate updateDate) {
         this.id = id;
         this.title = title;
         this.author = author;
@@ -19,6 +19,13 @@ public  class Book {
         this.updateDate = updateDate;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setAvailable(boolean availability) {
+        this.availability = availability;
+    }
 
     @Override
     public String toString() {
