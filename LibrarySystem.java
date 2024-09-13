@@ -9,16 +9,18 @@ public class LibrarySystem {
         Library books = new Library();
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("You want to see the available books?");
+        System.out.print("You want to see the available books? ");
 
     while (scanner.nextLine().equals("yes")) {
             for(Book book: books.getBooks()) {
+                if(book.availability == false) {
                 System.out.println(book);
+                }
             }
             books.getBooks();
 
             System.out.println("Enter the id of the book: ");
-            String bookId = scanner.nextLine();
+            Integer bookId = scanner.nextInt();
 
             System.out.println("Enter the name of the book: ");
             String bookName = scanner.nextLine();
