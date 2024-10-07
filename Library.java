@@ -2,7 +2,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Library extends Book {
+public class Library {
     List<Book> books = new ArrayList<>();
     List<Author> authors = new ArrayList<>();
     List<WeLend> weLends = new ArrayList<>();
@@ -16,44 +16,81 @@ public class Library extends Book {
     }
 
     public List<Book> getAvailableBooks() {
-        List<Books> availableBooks =  new ArrayList<>;
+        List<Book> availableBooks = new ArrayList<>();
 
         for(Book book: books) {
             if(book.isAvailable()) {
                 availableBooks.add(book);
-            break;
+            }
         }
 
         return availableBooks;
     }
-    
-    public Library() {
-        books.add(entendendo);
-        books.add(entendendoAlgoritimos);
-        books.add(codigoLimpo);
-    }
 
-    public List<Book> getBooks() {
-        return books;
-    }
-
-    public boolean lendingBook(int id, boolean available) {
+    public Book getBookForId(int id) {
         for(Book book: books) {
-            try {
-                if(book.getId() == id && book.available == true) {
-                    book.setAvailable(false);
-                    System.out.println("\nUpdated book" + book + "\n" + "Loan Date: " + LocalDate.now() + "\n");
-
-                    WeLend loan = new WeLend(book);
-                    weLends.add(loan);
-
-                    return true;
-                }
-            } catch (Exception e) {
-                System.err.println(e.getMessage() + "This book is already borrowed");
+            if(book.getId() == id) {
+                return book;
             }
         }
 
-        return false;
+        return null;
+    }
+
+    public void updateBook(int id, String newTitle) {
+        for(Book book: books) {
+            if(book.getId() == id) {
+                book.setTitle(newTitle);
+                break;
+            }
+        }
+    }
+
+    public void removeBook(int id) {
+        books.removeIf(book -> book.getId() == id);
+    }
+
+    public void addAuthors(Author author) {
+        authors.add(author);
+    }
+
+    public List<Author> listAuthors() {
+        return authors;
+    }
+
+    public void updateAuthor(int id, String newName) {
+        for(Author author: authors) {
+            if(author.getId() == id) {
+                author.setName(newName);
+                break;
+            }
+        }
+    }
+
+    public void removeAuthor(int id) {
+        authors.removeIf(author -> author.getId() == id);
+    }
+
+    public void lendBook(Book book, String username) {
+        if(book.isAvailable()) {
+            WeLend weLend = new WeLend(book, username);
+            weLends.add(weLend);
+            book.setAvailable(false);
+        } else {
+            System.out.println("Book not available for loan");
+        }
+    }
+
+    public void returnBook(int idLoan) {
+        for (WeLend weLend: weLends) {
+            if(weLend.getId() == idLoan && weLend.isActive()) {
+                weLend.returnBook();
+                break;
+            }
+        }   
+    }
+
+    public List<WeLend> listLoan() {
+        return weLends;
     }
 }
