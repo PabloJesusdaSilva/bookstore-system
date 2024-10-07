@@ -7,11 +7,25 @@ public class Library extends Book {
     List<Author> authors = new ArrayList<>();
     List<WeLend> weLends = new ArrayList<>();
 
-    Book codigoLimpo = new Book(1, "Código Limpo", new Author(1, "Robert C. Martin", LocalDate.of(1987, 4, 19)), true, LocalDate.of(1987, 4, 19), LocalDate.of(1987, 4, 19));
+    public void addingBook(Book book) {
+        books.add(book);
+    }
 
-    Book entendendoAlgoritimos = new Book(2, "Entendendo Algoritmos", new Author(2, "Aditya Y. Bhargava", LocalDate.of(1928, 3, 17)), true, LocalDate.of(1987, 4, 19), LocalDate.of(1987, 4, 19));
+    public List<Book> getBooks() {
+        return books;
+    }
 
-    Book entendendo = new Book(3, "Entendendo", new Author(3, "Fulano", LocalDate.of(1950, 9, 19)), true, LocalDate.of(1987, 4, 19), LocalDate.of(1987, 4, 19));
+    public List<Book> getAvailableBooks() {
+        List<Books> availableBooks =  new ArrayList<>;
+
+        for(Book book: books) {
+            if(book.isAvailable()) {
+                availableBooks.add(book);
+            break;
+        }
+
+        return availableBooks;
+    }
     
     public Library() {
         books.add(entendendo);
