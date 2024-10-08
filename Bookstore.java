@@ -2,12 +2,12 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Library {
+public class Bookstore {
     List<Book> books = new ArrayList<>();
     List<Author> authors = new ArrayList<>();
     List<WeLend> weLends = new ArrayList<>();
 
-    public void addingBook(Book book) {
+    public void addBook(Book book) {
         books.add(book);
     }
 
@@ -15,7 +15,7 @@ public class Library {
         return books;
     }
 
-    public List<Book> getAvailableBooks() {
+    public List<Book> listAvailableBooks() {
         List<Book> availableBooks = new ArrayList<>();
 
         for(Book book: books) {

@@ -1,18 +1,18 @@
-import java.time.LocalDate;
+import java.util.Date;
 
 public class Author {
     int id;
     String name;
-    LocalDate dateOfBirthDate;
+    Date dateOfBirthDate;
 
-    Author(int id, String name, LocalDate dateOfBirthDate) {
+    Author(int id, String name, Date dateOfBirthDate) {
         this.id = id;
         this.name = name;
         this.dateOfBirthDate = new Date();
     }
 
     public int getId() {
-        return id
+        return id;
     }
 
     public String getName() {
@@ -23,11 +23,11 @@ public class Author {
         return dateOfBirthDate;
     }
 
-    public String setName(String name) {
+    public void setName(String name) {
         this.name = name;
     }
 
-    public Date setDateOfBirthDate(Date dateOfBirthDate) {
+    public void setDateOfBirthDate(Date dateOfBirthDate) {
         this.dateOfBirthDate = dateOfBirthDate;    
     }  
     

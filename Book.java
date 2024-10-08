@@ -1,12 +1,12 @@
-import java.time.LocalDate;
+import java.util.Date;
 
 public  class Book {
     private int id;
     private String title;
     private Author author;
     private boolean available;
-    private LocalDate registrationDate;
-    private LocalDate updateDate;
+    private Date registrationDate;
+    private Date updateDate;
 
     Book(int id, String title, Author author) {
         this.id = id;
@@ -21,8 +21,8 @@ public  class Book {
         return id;
     }
 
-    public String getName() {
-        return name;
+    public String getTitle() {
+        return title;
     }
 
     public Author getAuthor() {
@@ -44,6 +44,7 @@ public  class Book {
     public void setTitle(String title) {
         this.title = title;
         this.updateDate = new Date();
+    }
 
     public void setAvailable(boolean available) {
         this.available = available;
